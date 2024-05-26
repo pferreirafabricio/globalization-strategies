@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="HiMessage" xml:space="preserve">
+    <value>Oi, como você está?</value>
+  </data>
+  <data name="TemperatureFormat" xml:space="preserve">
+    <value>Temperatura: {0}°C</value>
+  </data>
+  <data name="GoodMorning" xml:space="preserve">
+    <value>Bom dia, {0}!</value>
+  </data>
+  <data name="GoodAfternoon" xml:space="preserve">
+    <value>Boa tarde, {0}!</value>
+  </data>
+  <data name="GoodEvening" xml:space="preserve">
+    <value>Boa noite, {0}!</value>
+  </data>
+</root>

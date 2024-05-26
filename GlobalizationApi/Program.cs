@@ -12,7 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddLocalization((options) =>
+{
+    options.ResourcesPath = "Resources";
+});
 builder.Services.AddTransient<GreetingService>();
 
 var app = builder.Build();
@@ -28,23 +31,29 @@ app.UseHttpsRedirection();
 
 app.UseRequestLocalization(options =>
 {
-    var supportedCultures = new[] { "pt", "pt-BR", "pt-PT", "pt-BR-SP" };
+    var supportedCultures = new[] { "en", "pt", "pt-BR", "pt-PT", "pt-BR-SP" };
 
     options.SetDefaultCulture(supportedCultures[0])
         .AddSupportedCultures(supportedCultures)
         .AddSupportedUICultures(supportedCultures);
 
     options.ApplyCurrentCultureToResponseHeaders = true;
+    options.FallBackToParentUICultures = true;
 });
 
-app.MapGet("/greeting/hi", () =>
+app.MapGet("/greeting/hi", (GreetingService messageService) => new
 {
-    var messageService = app.Services.GetRequiredService<GreetingService>();
+    Message = messageService.GetHiMessage()
+});
 
-    return new
-    {
-        Message = messageService.GetHiMessage()
-    };
+app.MapGet("/temperature", (GreetingService messageService, [FromQuery] float temperature) => new
+{
+    Message = messageService.GetTemperatureFormattedMessage(temperature)
+});
+
+app.MapGet("/greeting", (GreetingService messageService, [FromQuery] string name) => new
+{
+    Message = messageService.GetGreetingMessage(name)
 });
 
 app.Run();
