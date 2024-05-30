@@ -1,0 +1,5 @@
+{
+  "Error404": "O recurso solicitado não foi encontrado.",
+  "Error500": "Ocorreu um erro interno no servidor: {0}",
+  "DefaultError500Reason": "Razão desconhecida"
+}
