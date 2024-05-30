@@ -1,5 +1,4 @@
 using GlobalizationApiJson.Localizer;
-using GlobalizationApiJson.Middleware;
 using GlobalizationApiJson.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
@@ -10,7 +9,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddLocalization();
-builder.Services.AddSingleton<LocalizationMiddleware>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
 builder.Services.AddTransient<ErrorMessagesServices>();
@@ -26,7 +24,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
-// app.UseMiddleware<LocalizationMiddleware>();
+
 app.UseRequestLocalization(options =>
 {
     var supportedCultures = new[] { "en", "pt", "pt-BR", "pt-PT", "pt-BR-SP" };
