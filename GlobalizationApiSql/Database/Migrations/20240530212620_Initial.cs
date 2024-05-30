@@ -118,7 +118,7 @@ namespace GlobalizationApiSql.Database.Migrations
             migrationBuilder.InsertData(
                 table: "TechnicalMessages",
                 columns: ["Code", "LanguageId", "Message"],
-                values: ["FAT001", 3, "Os serviços do governo não estão disponíveis no momento"]);
+                values: ["FAT001", 3, "Os serviços do governo brasileiro não estão disponíveis no momento"]);
 
             migrationBuilder.InsertData(
                 table: "TechnicalMessages",
@@ -132,7 +132,7 @@ namespace GlobalizationApiSql.Database.Migrations
             migrationBuilder.InsertData(
                 table: "TechnicalMessages",
                 columns: ["Code", "LanguageId", "Message"],
-                values: ["FAT001", 4, "Os serviços do governo não estão disponíveis no momento"]);
+                values: ["FAT001", 4, "Os serviços do governo português não estão disponíveis no momento"]);
 
             #endregion
         }

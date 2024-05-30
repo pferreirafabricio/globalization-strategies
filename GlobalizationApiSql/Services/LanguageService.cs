@@ -1,3 +1,4 @@
+using GlobalizationApiSql.Constants;
 using GlobalizationApiSql.Database;
 using GlobalizationApiSql.Domain;
 using Microsoft.EntityFrameworkCore;
@@ -15,19 +16,34 @@ public class LanguageService(TechnicalMessagesDbContext dbContext)
     public async Task<Language?> GetLanguageAsync(string code)
         => await dbContext.Languages!.FirstOrDefaultAsync(l => l.Code == code);
 
+    public Language? GetLanguage(string code)
+        => dbContext.Languages!.FirstOrDefault(l => l.Code == code);
+
     public async Task<Language?> GetLanguageFallbackAsync(string code)
     {
-        var language = await GetLanguageAsync(code);
+        var fallbackCode = MakeLanguageCodeFallback(code);
+
+        var language = await GetLanguageAsync(fallbackCode);
 
         if (language is not null)
             return language;
 
-        var fallbackCode = GetLanguageCodeFallback(code);
-
         return await GetLanguageFallbackAsync(fallbackCode);
     }
 
-    private static string GetLanguageCodeFallback(string code)
+    public Language? GetLanguageFallback(string code)
+    {
+        var fallbackCode = MakeLanguageCodeFallback(code);
+
+        var language = GetLanguage(fallbackCode);
+
+        if (language is not null)
+            return language;
+
+        return GetLanguageFallback(fallbackCode);
+    }
+
+    private static string MakeLanguageCodeFallback(string code)
     {
         var tokens = code.Split('-');
 
@@ -38,6 +54,6 @@ public class LanguageService(TechnicalMessagesDbContext dbContext)
             return tokens[0];
 
         // If the language is only one token (ex: pt, es, etc.), return English as the fallback
-        return "en";
+        return GlobalizationApiSqlConstants.DefaultCulture;
     }
 }

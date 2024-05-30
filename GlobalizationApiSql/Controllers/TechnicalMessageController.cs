@@ -38,8 +38,7 @@ public class TechnicalMessageController(TechnicalMessageService technicalMessage
     [HttpGet("code/{technicalCode}/fallback")]
     public async Task<ActionResult<TechnicalMessage>> GetTechnicalMessageFallbackAsync(string technicalCode)
     {
-        var currentCulture = CultureInfo.CurrentCulture;
-        var currentCultureCode = currentCulture.TwoLetterISOLanguageName;
+        var currentCultureCode = CultureInfo.CurrentCulture.Name;
 
         var technicalMessage = await technicalMessageService.GetTechnicalMessageFallbackAsync(technicalCode, currentCultureCode);
 

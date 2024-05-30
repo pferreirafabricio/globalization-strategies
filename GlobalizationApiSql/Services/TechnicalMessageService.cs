@@ -1,3 +1,4 @@
+using GlobalizationApiSql.Constants;
 using GlobalizationApiSql.Database;
 using GlobalizationApiSql.Domain;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,9 @@ namespace GlobalizationApiSql.Services;
 
 public class TechnicalMessageService(TechnicalMessagesDbContext dbContext, LanguageService languageService)
 {
+    public IEnumerable<TechnicalMessage> GetTechnicalMessages()
+        => [.. dbContext.TechnicalMessages!];
+
     public async Task<IEnumerable<TechnicalMessage>> GetTechnicalMessagesAsync()
         => await dbContext.TechnicalMessages!.ToListAsync();
 
@@ -23,7 +27,7 @@ public class TechnicalMessageService(TechnicalMessagesDbContext dbContext, Langu
 
     public async Task<TechnicalMessage?> GetTechnicalMessageFallbackAsync(string code, string languageCode)
     {
-        var language = await languageService.GetLanguageFallbackAsync(languageCode);
+        var language = await languageService.GetLanguageAsync(languageCode);
 
         if (language is null)
             return null;
@@ -34,6 +38,38 @@ public class TechnicalMessageService(TechnicalMessagesDbContext dbContext, Langu
         if (message is not null)
             return message;
 
-        return await GetTechnicalMessageFallbackAsync(code, language.Code);
+        if (message is null && languageCode == "en")
+            return null;
+
+        var fallbackLanguageCode = (await languageService.GetLanguageFallbackAsync(languageCode))?.Code;
+
+        if (fallbackLanguageCode is null)
+            return null;
+
+        return await GetTechnicalMessageFallbackAsync(code, fallbackLanguageCode);
+    }
+
+    public TechnicalMessage? GetTechnicalMessageFallback(string code, string languageCode)
+    {
+        var language = languageService.GetLanguage(languageCode);
+
+        if (language is null)
+            return null;
+
+        var message = dbContext.TechnicalMessages
+            !.FirstOrDefault(tm => tm.LanguageId == language.Id && tm.Code == code);
+
+        if (message is not null)
+            return message;
+
+        if (message is null && languageCode == GlobalizationApiSqlConstants.DefaultCulture)
+            return null;
+
+        var fallbackLanguageCode = languageService.GetLanguageFallback(languageCode)?.Code;
+
+        if (fallbackLanguageCode is null)
+            return null;
+
+        return GetTechnicalMessageFallback(code, fallbackLanguageCode);
     }
 }

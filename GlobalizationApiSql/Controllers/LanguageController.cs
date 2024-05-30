@@ -37,7 +37,8 @@ public class LanguageController(LanguageService languageService) : ControllerBas
     [HttpGet("code/{languageCode}/fallback")]
     public async Task<ActionResult<Language>> GetLanguageFallbackAsync(string languageCode)
     {
-        var language = await languageService.GetLanguageFallbackAsync(languageCode);
+        var language = await languageService.GetLanguageAsync(languageCode)
+            ?? await languageService.GetLanguageFallbackAsync(languageCode);
 
         if (language is null)
             return NotFound();
