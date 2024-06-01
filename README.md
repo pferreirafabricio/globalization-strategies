@@ -27,7 +27,14 @@
 > [!NOTE]
 > This project is a resource to help me understand the concepts of globalization and localization.
 
-## Projects
+## 🌎 Projects
+
+- [GlobalizationApi](./GlobalizationApi): A standard and simple application using `resx` files
+- [GlobalizationApiJson](./GlobalizationApiJson): A simple application using `json` files
+- [GlobalizationApiSql](./GlobalizationApiSql/README.md): A simple application using a database for the resources
+- [GlobalizationApiDate](./GlobalizationApiDate/README.md): A application to understand the differences between `DateTime` and `DateTimeOffset`
+- [GlobalizationFront](./GlobalizationFront): A standard and simple application to apply the localization principles in the front-end
+- [GlobalizationFrontModular](./GlobalizationFrontModular): A simple application using a more detailed solution to apply localization in front-end
 
 ## 📚 References
 

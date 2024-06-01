@@ -44,6 +44,6 @@
 
 3. Usage
 
-Use `DateTime` when you need a simple representation of date and time without concern for time zones (e.g., logging local events, date of birth).
+    - Use `DateTime` when you need a simple representation of date and time without concern for time zones (e.g., logging local events, date of birth).
 
-Use `DateTimeOffset` when you need to work with multiple time zones or need precise time zone information (e.g., scheduling global meetings, storing timestamps in a global application).
+    - Use `DateTimeOffset` when you need to work with multiple time zones or need precise time zone information (e.g., scheduling global meetings, storing timestamps in a global application).
