@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalizationApiJson", "Glo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalizationApiSql", "GlobalizationApiSql\GlobalizationApiSql.csproj", "{2B18F52B-18F9-4FFF-8E39-3547C8917A78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalizationApiDate", "GlobalizationApiDate\GlobalizationApiDate.csproj", "{978840F1-3371-4275-8FCB-7ED5E3CF56B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2B18F52B-18F9-4FFF-8E39-3547C8917A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B18F52B-18F9-4FFF-8E39-3547C8917A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B18F52B-18F9-4FFF-8E39-3547C8917A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{978840F1-3371-4275-8FCB-7ED5E3CF56B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{978840F1-3371-4275-8FCB-7ED5E3CF56B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{978840F1-3371-4275-8FCB-7ED5E3CF56B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{978840F1-3371-4275-8FCB-7ED5E3CF56B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
