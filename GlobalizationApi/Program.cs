@@ -31,7 +31,7 @@ app.UseHttpsRedirection();
 
 app.UseRequestLocalization(options =>
 {
-    var supportedCultures = new[] { "en", "pt", "pt-BR", "pt-PT", "pt-BR-SP" };
+    var supportedCultures = new[] { "en", "pt", "pt-BR", "pt-PT" };
 
     options.SetDefaultCulture(supportedCultures[0])
         .AddSupportedCultures(supportedCultures)

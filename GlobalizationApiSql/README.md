@@ -1,4 +1,6 @@
-# 🚶‍♂️ Installing and Running
+# GlobalizationApiSql
+
+## 🚶‍♂️ Installing and Running
 
 1. Run `dotnet restore`
 2. Guarantee that you have Entity Framework Core installed globally `dotnet tool install --global dotnet-ef`

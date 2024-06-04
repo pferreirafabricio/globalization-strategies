@@ -1,7 +1,7 @@
 const I18N_START_TOKEN = "#";
 const I18N_END_TOKEN = "#";
 
-import messages from "./locale/index.js";
+import messages from "./locale/index.mjs";
 
 /** @type {HTMLElement | null} */
 let app = null;
@@ -54,6 +54,7 @@ function onChangeLanguage(language) {
   tokenReplacer(language);
   titleReplacer(language);
   reassignSelect();
+  document.head.lang = language;
   languageSelect.value = language;
 }
 

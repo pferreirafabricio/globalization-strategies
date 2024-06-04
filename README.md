@@ -19,9 +19,9 @@
 
 ## :open_book: About
 
-- **Globalization:** The broad strategy for making an app suitable for global use, encompassing both internationalization and localization.
-- **Internationalization:** Preparing the app's architecture to support localization without changing the source code.
-- **Localization:** Adapting the app for a specific locale, including translation and cultural adjustments.
+- **Globalization:** The broad strategy for making an app suitable for global use, encompassing both internationalization and localization. Globalization opens the door for the company to expand into other markets.
+- **Internationalization:** Preparing the app's architecture, services, logos to support new cultures.  It is an intermediate step between the high-level globalization strategy and the country-specific localization.
+- **Localization:** Adapting the app for a specific locale, including translation and cultural adjustments, using culturally relevant products and illustrations.
 - **Translation:** Converting text from one language to another as part of the localization process.
 
 > [!NOTE]
@@ -34,7 +34,7 @@
 - [GlobalizationApiSql](./GlobalizationApiSql/README.md): A simple application using a database for the resources
 - [GlobalizationApiDate](./GlobalizationApiDate/README.md): A application to understand the differences between `DateTime` and `DateTimeOffset`
 - [GlobalizationFront](./GlobalizationFront): A standard and simple application to apply the localization principles in the front-end
-- [GlobalizationFrontModular](./GlobalizationFrontModular): A simple application using a more detailed solution to apply localization in front-end
+- [GlobalizationFrontModular](./GlobalizationFrontModular/README.md): A simple application using a more detailed solution to apply localization in front-end
 
 ## 📚 References
 
@@ -45,3 +45,4 @@
 - [Localization - Apple Developer](https://developer.apple.com/localization/)
 - [Ant Design - Locale component](https://github.com/ant-design/ant-design/tree/master/components/locale)
 - [Localization Extensibility](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/localization-extensibility?view=aspnetcore-8.0)
+- [Localization vs. Internationalization vs. Globalization](https://blog.andovar.com/localization-vs.-internationalization-vs.-globalization)
