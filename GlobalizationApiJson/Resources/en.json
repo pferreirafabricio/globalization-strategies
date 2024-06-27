@@ -1,5 +1,5 @@
 {
-  "Error404": "The requested resource was not found.",
-  "Error500": "An internal server error occurred.",
+  "Error404": "The requested resource was not found",
+  "Error500": "An internal server error occurred: {0}",
   "DefaultError500Reason": "Unknown reason"
 }
